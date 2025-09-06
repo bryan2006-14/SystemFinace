@@ -1,16 +1,17 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['id_usuario'])){
-        header("Location:index.php");
-    }
-    $nombre = $_SESSION['nombre'];
-    require_once 'modelo/config.php';
-    $fotoPerfil = $_SESSION['foto_perfil']; 
-    $rutaFotoPerfil = "fotos/" . $fotoPerfil;
+session_start();
+if (!isset($_SESSION['id_usuario'])) {
+    header("Location:index.php");
+}
+$nombre = $_SESSION['nombre'];
+require_once 'modelo/config.php';
+$fotoPerfil = $_SESSION['foto_perfil'];
+$rutaFotoPerfil = "fotos/" . $fotoPerfil;
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,6 +41,7 @@
     <!----  -->
     <title>Gasto</title>
 </head>
+
 <body>
     <header>
         <nav class="navcontainer">
@@ -88,53 +90,53 @@
         </nav>
     </header>
     <main>
-        
-    <div class="configuracion">
-        <div class="configuracion__title">
-            <p>Editar Perfil</p>
-            <figure class="img-container">
-                <!-- Tu imagen de perfil -->
-                <img src="<?php echo $rutaFotoPerfil;?>" alt="foto del perfil">
-                <div class="configuracion__icon">
-                    <i class="fi fi-sr-camera"></i>
+        <div class="configuracion">
+            <div class="configuracion__title">
+                <p>Editar Perfil</p>
+                <figure class="img-container">
+                    <!-- Tu imagen de perfil -->
+                    <img src="<?php echo $rutaFotoPerfil; ?>" alt="foto del perfil">
+                    <div class="configuracion__icon">
+                        <i class="fi fi-sr-camera"></i>
+                    </div>
+                </figure>
+            </div>
+            <form class="form" method="POST">
+                <div class="form__data">
+                    <div class="form__input">
+                        <label for="nombre">Nombre de usuario</label>
+                        <!-- Rellena el campo de entrada con el nombre actual del usuario -->
+                        <input type="text" name="nombre" id="name" value="<?php echo $datosUsuario['nombre']; ?>" required readonly>
+                    </div>
+                    <div class="form__input">
+                        <label for="correo">Correo</label>
+                        <!-- Rellena el campo de entrada con el correo electrónico actual del usuario -->
+                        <input type="email" name="correo" id="email" value="<?php echo $datosUsuario['correo']; ?>" required readonly>
+                    </div>
                 </div>
-            </figure>
+                <div class="passwor">
+                    <div class="form__pass">
+                        <label for="password">Contraseña</label>
+                        <input type="password" name="password" id="pass" value="<?php echo $datosUsuario['password']; ?>" required readonly>
+                    </div>
+                    <div class="form__pass">
+                        <label for="confirm_password">Confirmar Contraseña</label>
+                        <input type="password" name="confirm_password" id="confirm_pass" required readonly>
+                    </div>
+                    <div class="form__cta">
+                        <input type="checkbox" id="showPassword">
+                        <label for="showPassword">Mostrar contraseñas</label>
+                    </div>
+                    <div id="error-message"></div>
+                </div>
+                <div class="form__btns">
+                    <input type="button" id="editButton" value="Editar">
+                    <input type="submit" value="Guardar" id="submitButton" style="display: none;">
+                </div>
+            </form>
         </div>
-        <form  class="form" method="POST">
-            <div class="form__data">
-                <div class="form__input">
-                    <label for="nombre">Nombre de usuario</label>
-                    <!-- Rellena el campo de entrada con el nombre actual del usuario -->
-                    <input type="text" name="nombre" id="name"value="<?php echo $datosUsuario['nombre']; ?>"required readonly>
-                </div>
-                <div class="form__input">
-                    <label for="correo">Correo</label>
-                    <!-- Rellena el campo de entrada con el correo electrónico actual del usuario -->
-                    <input type="email" name="correo" id="email" value="<?php echo $datosUsuario['correo']; ?>"required readonly>
-                </div>
-            </div>
-            <div class="passwor">
-                <div class="form__pass">
-                    <label for="password">Contraseña</label>
-                    <input type="password" name="password" id="pass" value="<?php echo $datosUsuario['password'];?>" required readonly>
-                </div>
-                <div class="form__pass">
-                    <label for="confirm_password">Confirmar Contraseña</label>
-                    <input type="password" name="confirm_password" id="confirm_pass" required readonly>
-                </div>
-                <div class="form__cta">
-                    <input type="checkbox" id="showPassword">
-                    <label for="showPassword">Mostrar contraseñas</label>
-                </div>
-                <div id="error-message"></div>
-            </div>
-            <div class="form__btns">
-                <input type="button" id="editButton" value="Editar">
-                <input type="submit" value="Guardar" id="submitButton" style="display: none;">
-            </div>
-        </form>
-    </div>
-</main>
+    </main>
 </body>
+
 </html>
 <script src="./js/configuracion/showpass.js"></script>
