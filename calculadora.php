@@ -1,16 +1,21 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Si no hay usuario logueado redirige
 if (!isset($_SESSION['id_usuario'])) {
-    header("Location:index.php");
+    header("Location: index.php");
     exit();
 }
-$nombre = $_SESSION['nombre'];
-$fotoPerfil = $_SESSION['foto_perfil'];
-$rutaFotoPerfil = "fotos/" . $fotoPerfil;
-// Verificar si la imagen existe, usar una por defecto si no
-$rutaDefault = "recursos/img/default-avatar.png";
-$rutaFotoPerfil = (!empty($fotoPerfil) && file_exists("fotos/" . $fotoPerfil))
-    ? "fotos/" . $fotoPerfil
+
+// Valores seguros por defecto (evita "undefined variable")
+$nombre = isset($_SESSION['nombre']) && $_SESSION['nombre'] !== '' ? $_SESSION['nombre'] : 'Usuario';
+$fotoPerfil = isset($_SESSION['foto_perfil']) && $_SESSION['foto_perfil'] !== '' ? $_SESSION['foto_perfil'] : null;
+
+$rutaDefault = 'recursos/img/default-avatar.png';
+$rutaFotoPerfil = ($fotoPerfil && file_exists(__DIR__ . '/fotos/' . $fotoPerfil))
+    ? 'fotos/' . $fotoPerfil
     : $rutaDefault;
 ?>
 

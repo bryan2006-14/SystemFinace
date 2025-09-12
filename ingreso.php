@@ -1,14 +1,15 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['id_usuario'])){
-        header("Location:index.php");
-    }
-    $nombre = $_SESSION['nombre'];
-    $fotoPerfil = $_SESSION['foto_perfil']; 
-    $rutaFotoPerfil = "fotos/" . $fotoPerfil;
+session_start();
+if (!isset($_SESSION['id_usuario'])) {
+    header("Location:index.php");
+}
+$nombre = $_SESSION['nombre'];
+$fotoPerfil = $_SESSION['foto_perfil'];
+$rutaFotoPerfil = "fotos/" . $fotoPerfil;
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,6 +38,7 @@
     <!----  -->
     <title>Ingreso</title>
 </head>
+
 <body>
     <header>
         <nav class="navcontainer">
@@ -87,9 +89,9 @@
     <main>
         <div class="head-container">
             <div class="user">
-                <p class="user__name"><?php echo $nombre;?></p>
+                <p class="user__name"><?php echo $nombre; ?></p>
                 <div class="user__img">
-                    <img src="<?php echo $rutaFotoPerfil;?>" alt="" class="image">
+                    <img src="<?php echo $rutaFotoPerfil; ?>" alt="" class="image">
                 </div>
                 <a href="modelo/logout.php" class="user__link"><i class="fi fi-rr-sign-out-alt exit"></i></a>
             </div>
@@ -104,9 +106,9 @@
                 <!-- modal -->
                 <div id="Modal" class="modal">
                     <div class="modal-content">
-                      <span class="close">&times;</span>
-                      <h2 class="modal__title">Agregar nuevo Ingreso</h2>
-                      <form class="modal__form" onsubmit="return validateForm()" action="./modelo/registroIngreso.php" method="POST">
+                        <span class="close">&times;</span>
+                        <h2 class="modal__title">Agregar nuevo Ingreso</h2>
+                        <form class="modal__form" onsubmit="return validateForm()" action="./modelo/registroIngreso.php" method="POST">
                             <div class="input">
                                 <span>s/</span>
                                 <input type="text" id="montoInput" placeholder="Monto" required name="monto">
@@ -120,7 +122,7 @@
                                 <textarea id="note" cols="30" rows="10" class="textarea" name="nota" required></textarea>
                             </div>
                             <input type="submit" value="Añadir" class="modal-btn-add">
-                      </form>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -162,26 +164,33 @@
                             <th>Nota</th>
                         </thead>
                         <tbody id="gastos-table-body">
-                            <?php require 'modelo/tableIngreso.php'?>
+                            <?php require 'modelo/tableIngreso.php' ?>
                             <!-- modal2 -->
                             <div id="Modals" class="modal">
                                 <div class="modal-content">
                                     <span class="closer">&times;</span>
                                     <h2 class="modal__title">Agregar nuevo Ingreso</h2>
                                     <form class="modal__form" onsubmit="return validateForm()" action="./modelo/registroIngreso.php" method="POST">
-                                            <div class="input">
-                                                <span>s/</span>
-                                                <input type="text" id="montoInput" placeholder="Monto" required name="monto">
-                                            </div>
-                                            <div class="input">
-                                                <span><i class="fi fi-rr-handshake"></i></span>
-                                                <input type="text" id="formaPagoInput" placeholder="Forma de pago" name="forma_pago" required>
-                                            </div>
-                                            <div class="input-note">
-                                                <label for="note">Nota</label>
-                                                <textarea id="note" cols="30" rows="10" class="textarea" name="nota" required></textarea>
-                                            </div>
-                                            <input type="submit" value="Añadir" class="modal-btn-add">
+                                        <div class="input">
+                                            <span>s/</span>
+                                            <input type="text" id="montoInput" placeholder="Monto" required name="monto">
+                                        </div>
+                                        <div class="input">
+                                            <span><i class="fa-solid fa-wallet"></i></span>
+                                            <select name="forma_pago" class="input-select" required>
+                                                <option value="">Seleccione Forma de Pago</option>
+                                                <option value="Efectivo">Efectivo</option>
+                                                <option value="Yape">Yape</option>
+                                                <option value="Plin">Plin</option>
+                                                <option value="Tarjeta">Tarjeta</option>
+                                                <option value="Transferencia">Transferencia</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-note">
+                                            <label for="note">Nota</label>
+                                            <textarea id="note" cols="30" rows="10" class="textarea" name="nota" required></textarea>
+                                        </div>
+                                        <input type="submit" value="Añadir" class="modal-btn-add">
                                     </form>
                                 </div>
                             </div>
@@ -192,8 +201,7 @@
         </section>
     </main>
 </body>
+
 </html>
 <script src="js/ingreso/valida.js"></script>
 <script src="js/ingreso/modal.js"></script>
-
-

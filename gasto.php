@@ -1,14 +1,15 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['id_usuario'])){
-        header("Location:index.php");
-    }
-    $nombre = $_SESSION['nombre'];
-    $fotoPerfil = $_SESSION['foto_perfil']; 
-    $rutaFotoPerfil = "fotos/" . $fotoPerfil;
+session_start();
+if (!isset($_SESSION['id_usuario'])) {
+    header("Location:index.php");
+}
+$nombre = $_SESSION['nombre'];
+$fotoPerfil = $_SESSION['foto_perfil'];
+$rutaFotoPerfil = "fotos/" . $fotoPerfil;
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,6 +38,7 @@
     <!----  -->
     <title>Gasto</title>
 </head>
+
 <body>
     <header>
         <nav class="navcontainer">
@@ -87,9 +89,9 @@
     <main>
         <div class="head-container">
             <div class="user">
-                <p class="user__name"><?php echo $nombre;?></p>
+                <p class="user__name"><?php echo $nombre; ?></p>
                 <div class="user__img">
-                    <img src="<?php echo $rutaFotoPerfil;?>" alt="" class="image">
+                    <img src="<?php echo $rutaFotoPerfil; ?>" alt="" class="image">
                 </div>
                 <a href="modelo/logout.php" class="user__link"><i class="fi fi-rr-sign-out-alt exit"></i></a>
             </div>
@@ -104,34 +106,41 @@
                 <!-- modal -->
                 <div id="Modal" class="modal">
                     <div class="modal-content">
-                      <span class="close">&times;</span>
-                      <h2 class="modal__title">Agregar nuevo Gasto</h2>
-                      <form class="modal__form" onsubmit="return validateForm()" action="./modelo/registroGasto.php" method="POST">
+                        <span class="close">&times;</span>
+                        <h2 class="modal__title">Agregar nuevo Gasto</h2>
+                        <form class="modal__form" onsubmit="return validateForm()" action="./modelo/registroGasto.php" method="POST">
                             <div class="input">
-                            <span>s/</span>
-                            <input type="text" id="montoInput" placeholder="Monto" required name="monto">
+                                <span>s/</span>
+                                <input type="text" id="montoInput" placeholder="Monto" required name="monto">
                             </div>
                             <div class="input">
-                            <span><i class="fi fi-rr-handshake"></i></span>
-                            <input type="text" id="formaPagoInput" placeholder="Forma de pago" name="forma_pago" required>
+                                <span><i class="fa-solid fa-credit-card"></i></span>
+                                <select name="forma_pago" class="input-select" required>
+                                    <option value="">Seleccione Forma de Pago</option>
+                                    <option value="Efectivo">Efectivo</option>
+                                    <option value="Yape">Yape</option>
+                                    <option value="Plin">Plin</option>
+                                    <option value="Tarjeta">Tarjeta</option>
+                                    <option value="Transferencia">Transferencia</option>
+                                </select>
                             </div>
                             <div class="input">
-                            <span><i class="fi fi-sr-tags"></i></span>
-                            <select id="select" class="input-select" name="categoria" required>
-                                <option selected disabled>Elige una categoría</option>
-                                <option value="1">Comida</option>
-                                <option value="2">Transporte</option>
-                                <option value="3">Vivienda</option>
-                                <option value="4">Entretenimiento</option>
-                                <option value="5">Otros</option>
-                            </select>
+                                <span><i class="fi fi-sr-tags"></i></span>
+                                <select id="select" class="input-select" name="categoria" required>
+                                    <option selected disabled>Elige una categoría</option>
+                                    <option value="1">Comida</option>
+                                    <option value="2">Transporte</option>
+                                    <option value="3">Vivienda</option>
+                                    <option value="4">Entretenimiento</option>
+                                    <option value="5">Otros</option>
+                                </select>
                             </div>
                             <div class="input-note">
-                            <label for="note">Nota</label>
-                            <textarea id="note" cols="30" rows="10" class="textarea" name="nota" required></textarea>
+                                <label for="note">Nota</label>
+                                <textarea id="note" cols="30" rows="10" class="textarea" name="nota" required></textarea>
                             </div>
                             <input type="submit" value="Añadir" class="modal-btn-add">
-                      </form>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -167,7 +176,7 @@
                         </thead>
                         <tbody id="gastos-table-body">
                             <?php
-                                require 'modelo/table.php';
+                            require 'modelo/table.php';
                             ?>
                         </tbody>
                     </table>
@@ -176,9 +185,9 @@
         </section>
     </main>
 </body>
+
 </html>
 <script type="module" src="./js/gasto/modal.js"></script>
 <!-- <script src="./js/gasto/listModal.js"></script> -->
 <script src="./js/gasto/mobile.js"></script>
 <script type="module" src="./js/gasto/validate.js"></script>
-
