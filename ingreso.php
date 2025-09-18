@@ -76,6 +76,13 @@ $rutaFotoPerfil = "fotos/" . $fotoPerfil;
                         <p>Balance</p>
                     </a>
                 </li>
+                <span class="list__title">Herramientas</span>
+                <li class="list__item">
+                    <a href="./calculadora.php" class="list__link active">
+                        <i class="fi fi-sr-calculator list__img"></i>
+                        <p>Calculadora</p>
+                    </a>
+                </li>
                 <span class="list__title">Otros</span>
                 <li class="list__item">
                     <a href="configuracion.php" class="list__link">
@@ -114,8 +121,15 @@ $rutaFotoPerfil = "fotos/" . $fotoPerfil;
                                 <input type="text" id="montoInput" placeholder="Monto" required name="monto">
                             </div>
                             <div class="input">
-                                <span><i class="fi fi-rr-handshake"></i></span>
-                                <input type="text" id="formaPagoInput" placeholder="Forma de pago" name="forma_pago" required>
+                                <span><i class="fa-solid fa-credit-card"></i></span>
+                                <select name="forma_pago" class="input-select" required>
+                                    <option value="">Seleccione Forma de Pago</option>
+                                    <option value="Efectivo">Efectivo</option>
+                                    <option value="Yape">Yape</option>
+                                    <option value="Plin">Plin</option>
+                                    <option value="Tarjeta">Tarjeta</option>
+                                    <option value="Transferencia">Transferencia</option>
+                                </select>
                             </div>
                             <div class="input-note">
                                 <label for="note">Nota</label>

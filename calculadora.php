@@ -68,7 +68,7 @@ $rutaFotoPerfil = ($fotoPerfil && file_exists(__DIR__ . '/fotos/' . $fotoPerfil)
                     <li class="list__item">
                         <a href="./ingreso.php" class="list__link">
                             <i class="fi fi-sr-coins list__img"></i>
-                            <p>Ingresos</p>
+                            <p>ingresos</p>
                         </a>
                     </li>
                     <li class="list__item">
@@ -94,7 +94,7 @@ $rutaFotoPerfil = ($fotoPerfil && file_exists(__DIR__ . '/fotos/' . $fotoPerfil)
                     <li class="list__item">
                         <a href="configuracion.php" class="list__link">
                             <i class="fi fi-br-gears list__img"></i>
-                            <p>Configuración</p>
+                            <p>Configuracion</p>
                         </a>
                     </li>
                 </ul>
@@ -186,7 +186,7 @@ $rutaFotoPerfil = ($fotoPerfil && file_exists(__DIR__ . '/fotos/' . $fotoPerfil)
                             <label for="loanTerm">Plazo (años)</label>
                             <input type="number" id="loanTerm" placeholder="Ej: 5">
                         </div>
-                        <button class="btn btn-calculate" onclick="calculateLoan()">Calcular Préstamo</button>
+                        <button class="btn-calculate" onclick="calculateLoan()">Calcular Préstamo</button>
                         <div class="result-container" id="loanResult"></div>
                     </div>
                 </div>
@@ -211,7 +211,7 @@ $rutaFotoPerfil = ($fotoPerfil && file_exists(__DIR__ . '/fotos/' . $fotoPerfil)
                             <label for="investmentTerm">Plazo (años)</label>
                             <input type="number" id="investmentTerm" placeholder="Ej: 10">
                         </div>
-                        <button class="btn btn-calculate" onclick="calculateInvestment()">Calcular Inversión</button>
+                        <button class="btn-calculate" onclick="calculateInvestment()">Calcular Inversión</button>
                         <div class="result-container" id="investmentResult"></div>
                     </div>
                 </div>

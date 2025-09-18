@@ -1,14 +1,15 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['id_usuario'])){
-        header("Location:index.php");
-    }
-    $nombre = $_SESSION['nombre'];
-    $fotoPerfil = $_SESSION['foto_perfil']; 
-    $rutaFotoPerfil = "fotos/" . $fotoPerfil;
+session_start();
+if (!isset($_SESSION['id_usuario'])) {
+    header("Location:index.php");
+}
+$nombre = $_SESSION['nombre'];
+$fotoPerfil = $_SESSION['foto_perfil'];
+$rutaFotoPerfil = "fotos/" . $fotoPerfil;
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,6 +38,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Balance</title>
 </head>
+
 <body>
     <header>
         <nav class="navcontainer">
@@ -74,6 +76,13 @@
                         <p>Balance</p>
                     </a>
                 </li>
+                <span class="list__title">Herramientas</span>
+                <li class="list__item">
+                    <a href="./calculadora.php" class="list__link active">
+                        <i class="fi fi-sr-calculator list__img"></i>
+                        <p>Calculadora</p>
+                    </a>
+                </li>
                 <span class="list__title">Otros</span>
                 <li class="list__item">
                     <a href="configuracion.php" class="list__link">
@@ -87,9 +96,9 @@
     <main>
         <div class="head-container">
             <div class="user">
-                <p class="user__name"><?php echo $nombre;?></p>
+                <p class="user__name"><?php echo $nombre; ?></p>
                 <div class="user__img">
-                    <img src="<?php echo $rutaFotoPerfil;?>" alt="" class="image">
+                    <img src="<?php echo $rutaFotoPerfil; ?>" alt="" class="image">
                 </div>
                 <a href="modelo/logout.php" class="user__link"><i class="fi fi-rr-sign-out-alt exit"></i></a>
             </div>
@@ -125,6 +134,7 @@
         </div>
     </main>
 </body>
+
 </html>
 <script src="js/balance/charts.js"></script>
 <script type="module" src="js/balance/list.js"></script>

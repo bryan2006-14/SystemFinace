@@ -79,6 +79,13 @@ $rutaFotoPerfil = "fotos/" . $fotoPerfil;
                         <p>Balance</p>
                     </a>
                 </li>
+                <span class="list__title">Herramientas</span>
+                <li class="list__item">
+                    <a href="./calculadora.php" class="list__link active">
+                        <i class="fi fi-sr-calculator list__img"></i>
+                        <p>Calculadora</p>
+                    </a>
+                </li>
                 <span class="list__title">Otros</span>
                 <li class="list__item">
                     <a href="#" class="list__link">
