@@ -17,8 +17,8 @@ $rutaFotoPerfil = "fotos/" . $fotoPerfil;
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrap/js/bootstrap.min.js">
-    <link rel="stylesheet" href="css/gasto/mobile.css">
     <link rel="stylesheet" href="css/gasto/style.css">
+    <link rel="stylesheet" href="css/gasto/mobile.css">
     <!-- font icons -->
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-thin-straight/css/uicons-thin-straight.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-thin-rounded/css/uicons-thin-rounded.css'>
@@ -78,7 +78,7 @@ $rutaFotoPerfil = "fotos/" . $fotoPerfil;
                 </li>
                 <span class="list__title">Herramientas</span>
                 <li class="list__item">
-                    <a href="./calculadora.php" class="list__link active">
+                    <a href="./calculadora.php" class="list__link">
                         <i class="fi fi-sr-calculator list__img"></i>
                         <p>Calculadora</p>
                     </a>

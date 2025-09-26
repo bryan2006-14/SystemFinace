@@ -81,7 +81,7 @@ $rutaFotoPerfil = "fotos/" . $fotoPerfil;
                 </li>
                 <span class="list__title">Herramientas</span>
                 <li class="list__item">
-                    <a href="./calculadora.php" class="list__link active">
+                    <a href="./calculadora.php" class="list__link">
                         <i class="fi fi-sr-calculator list__img"></i>
                         <p>Calculadora</p>
                     </a>
@@ -143,7 +143,7 @@ $rutaFotoPerfil = "fotos/" . $fotoPerfil;
             </form>
         </div>
     </main>
-</body>
 
+    <script src="./js/configuracion/showpass.js"></script>
+</body>
 </html>
-<script src="./js/configuracion/showpass.js"></script>

@@ -85,7 +85,7 @@ $rutaFotoPerfil = ($fotoPerfil && file_exists(__DIR__ . '/fotos/' . $fotoPerfil)
                     </li>
                     <span class="list__title">Herramientas</span>
                     <li class="list__item">
-                        <a href="./calculadora.php" class="list__link active">
+                        <a href="./calculadora.php" class="list__link">
                             <i class="fi fi-sr-calculator list__img"></i>
                             <p>Calculadora</p>
                         </a>
@@ -221,5 +221,4 @@ $rutaFotoPerfil = ($fotoPerfil && file_exists(__DIR__ . '/fotos/' . $fotoPerfil)
 
     <script src="js/calculadora/calculadora.js"></script>
 </body>
-
 </html>
